@@ -6,6 +6,10 @@ var revistas =[
 	"Avon",
 ]
 
+
+
+
+
 var bt2_02_interval = null;
 
 //venda itens
@@ -305,14 +309,14 @@ function cria_fatura()
 		}
 
 
-		valor_produto.val() = valor_produto.val().replace(',','.');
+		valor_produto.val()
 
 		//botao
 		lista_itens[x] = {};
 		lista_itens[x]['nome_produto']=nome_produto.val();
-		console.log(valor_produto.val());
+		console.log(nome_produto.val());
 		lista_itens[x]['quantidade_produto']=quantidade_produto.val();
-		lista_itens[x]['valor_produto']=valor_produto.val();
+		lista_itens[x]['valor_produto']=valor_produto.val().replace(',','.');
 		lista_itens[x]['pagamento_produto']=pagamento_produto.val();
 		lista_itens[x]['emaberto']=pagamento_produto.val() == 3 ? (0) : (1);
 		lista_itens[x]['data']=data.val();

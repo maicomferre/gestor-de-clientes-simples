@@ -7,7 +7,7 @@ if(defined('criabanco')){
 	$pdo->exec('CREATE DATABASE IF NOT EXISTS '.db);
 
 	$sql = 'CREATE TABLE `'.db.'`.`produto` ( `nome_produto` VARCHAR(50) NOT NULL ,
-	 `valor_produto` DECIMAL NOT NULL DEFAULT 0,
+	 `valor_produto` DECIMAL(10,2) NOT NULL DEFAULT 0.00,
 	  `data_criacao` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
 	  `data_vencimento` TIMESTAMP NULL,
 	   `emaberto` INT NULL DEFAULT 1,
@@ -32,3 +32,4 @@ if(defined('criabanco')){
 	$pdo->exec($sql);
 }
 ?>
+

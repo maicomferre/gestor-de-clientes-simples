@@ -33,8 +33,16 @@ class Banco{
 	{
 		$tmp = $this->query("SELECT count(*) as contas,
 			sum(produto.valor_produto) as valor_produto,
-			min(data_vencimento) as data_vencimento,
-			cliente.nome,cliente.id FROM `produto`,`cliente` WHERE emaberto=1 GROUP BY id");
+			MAX(data_vencimento) as data_vencimento,
+			cliente.nome,cliente.id 
+
+			FROM `produto`
+
+			INNER JOIN `cliente`
+			ON produto.clienteid=cliente.id
+
+			WHERE emaberto=1 GROUP BY id
+		");
 
 		return $tmp;
 	}

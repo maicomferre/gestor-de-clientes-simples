@@ -7,9 +7,6 @@ var revistas =[
 ]
 
 
-
-
-
 var bt2_02_interval = null;
 
 //venda itens
@@ -275,7 +272,7 @@ function cria_fatura()
 			quantidade_produto.focus();
 			return false;
 		}
-		if(valor_produto.val() < 1 || quantidade_produto.val() > 100000)
+		if(valor_produto.val() < 1 || valor_produto.val() > 100000)
 		{
 			aviso('erro','Preço do Produto Inválido');
 			valor_produto.focus();
@@ -308,15 +305,24 @@ function cria_fatura()
 			}
 		}
 
+		var preco = valor_produto.val().replace(',','.');
+		preco = parseFloat(preco);
 
-		valor_produto.val()
+
+		if(isNaN(preco))
+		{
+			aviso("erro",'Erro desconhecido no campo valor do produto.');
+			valor_produto.focus()
+			console.log("valor_produto; Esperado string com numero flutuante; Recebido: "+valor_produto.val());
+			return false;
+		}
 
 		//botao
 		lista_itens[x] = {};
 		lista_itens[x]['nome_produto']=nome_produto.val();
-		console.log(nome_produto.val());
+		console.log(quantidade_produto.val());
 		lista_itens[x]['quantidade_produto']=quantidade_produto.val();
-		lista_itens[x]['valor_produto']=valor_produto.val().replace(',','.');
+		lista_itens[x]['valor_produto']=preco;
 		lista_itens[x]['pagamento_produto']=pagamento_produto.val();
 		lista_itens[x]['emaberto']=pagamento_produto.val() == 3 ? (0) : (1);
 		lista_itens[x]['data']=data.val();

@@ -31,19 +31,20 @@ $(document).ready(function(){
 function aviso(tipo,valor)
 {
 	$('#alerta').html(valor);
-	if(tipo == 'erro')
-	{
-		$('#alerta').attr('class','list-group-item list-group-item-action list-group-item-warning')
-	}
-	else if(tipo == 'sucesso')
-	{
-		$('#alerta').attr('class','list-group-item list-group-item-action list-group-item-warning');
-	}
+
+	var list_group_item = {
+		'erro':'warning',
+		'info':'info',
+		'sucesso':'success'
+	};
+
+	$('#alerta').attr('class','list-group-item list-group-item-action list-group-item-'+list_group_item[tipo]);
+
 	$('#alerta').show('slow');
 
 	setTimeout(function(){
 		$('#alerta').hide('slow');
-	},5000);
+	},5200);
 }
 
 function hide(x)

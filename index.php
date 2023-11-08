@@ -12,10 +12,11 @@
 	<link rel="stylesheet" type="text/css" href="src/index.css" />
 
 	<!-- Externos -->
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
 
 	<script src="https://kit.fontawesome.com/cb35299c24.js" crossorigin="anonymous"></script>
 	<title>Loja Da Sara</title>
@@ -83,38 +84,60 @@
 		<span id="botao_sair" onClick="hide('#btn_02');">Sair(X)</span>
 
 		<h1>Venda</h1>
-
-		<br><br>
-		<select class="form-select" id="lista_clientes" aria-label="Cliente">
+		<div class="d-flex justify-content-center" id="lista_de_revistas">
+			<table >
+				<tr>
+					<th> Revistas</th>
+					<th>Avon</th>
+					<th>Natura</th>
+					<th>Jequiti</th>
+				</tr>
+				<tr>
+					<th>Ciclo</th>
+					<td>19</td>
+					<td>20</td>
+					<td>17</td>
+				</tr>
+				<tr>
+					<th>Data</th>
+					<td>19/10 -> 20/11</td>
+					<td>05/09 -> 15/11</td>
+					<td>10/10 -> 10/01/2024</td>
+				</tr>
+			</table>
+		</div>	
+		<br>
+		<select class="form-select" id="lista_clientes"  aria-label="Cliente">
 		</select>
-		<br><br>
+		<br>
 
-		<button type="button" class="btn btn-primary" onClick="venda_adicionar_itens()">Adicionar Linha</button>
-
+		<div class="d-flex justify-content-center">
+			<button type="button" class="btn btn-primary" onClick="venda_adicionar_itens()">Adicionar Linha</button>&nbsp;
+			<button type="button" class="btn btn-info" onClick="venda_criar_fatura();">Criar Fatura</button>&nbsp;
+			<button type="button" class="btn btn-danger" onClick="venda_apagar_fatura();">Resetar Lista Fatura</button>&nbsp;	
+			<button type="button" class="btn btn-warning" onClick="venda_apagar_ultima_linha();">Apagar Ultima Linha</button>&nbsp;	
+		</div>
 		<br />
-		<table id="content">
-			<tr>
-				<th>Produto Vendido</th>
-				<th>Quantidade</th>
-				<th>Preço</th>
-				<th>Pagamento</th>
-				<th>Estado</th>
-				<th>Data</th>
-				<th>Revista</th>
-				<th>Código</th>
-			</tr>
-		</table>
-		<div class="crazy" style="display:none">
-			<b>Ações:</b>
-			<input type="submit" onClick="cria_fatura();" value="Criar Fatura" />
-			<input type="submit" onClick="apagarfatura();" value="Resetar Lista Fatura" />
+		<div class="d-flex justify-content-center">
+			<table id="content">
+				<tr>
+					<th>Produto Vendido</th>
+					<th>Quantidade</th>
+					<th>Preço</th>
+					<th>Pagamento</th>
+					<th>Estado</th>
+					<th>Data</th>
+					<th>Revista</th>
+					<th>Código</th>
+				</tr>
+			</table>
 		</div>
 	</div>
 
 	<div class="abtn" style="display:none;" id="btn_03">
 		<span id="botao_sair" onClick="hide('#btn_03');">Sair(X)</span>
 		<h1>Gerenciar Cliente do Sistema</h1>
-		<div class="justify-content-center">
+		<div>
 
 			<table>
 				<tr>

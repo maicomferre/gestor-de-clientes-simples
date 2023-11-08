@@ -2,15 +2,15 @@
 	@Descrição:
 		Funções relativas ao painel de cadastro de pedido dos clientes.
 
-	apagarfatura() -> Apaga os dados(salvo apenas no navegador); e limpa linhas criadas gerando 1 linha nova em branco;
+	venda_apagar_fatura() -> Apaga os dados(salvo apenas no navegador); e limpa linhas criadas gerando 1 linha nova em branco;
 	cria_fatura()  -> Chamada pelo usuário ao terminar de escrever a fatura. Valida e chama request.js/envia_fatura() para enviar os dados para o servidor;
 	venda_adicionar_itens() -> Adiciona Linhas;
-
+	venda_apagar_ultima_linha() -> Apaga ultima linha criada por venda_adicionar_itens();
 */
 
-function apagarfatura()
+function venda_apagar_fatura()
 {
-	var x = () => {
+	var acao = () => {
 		lista_itens = {};
 
 		itens=0;
@@ -20,7 +20,7 @@ function apagarfatura()
 
 	};
 
-	dialogoconfirmacao("Deseja Apagar as informações inseridas nesta fatura? Os dados serão perdidos.",x);
+	dialogoconfirmacao("Deseja Apagar as informações inseridas nesta fatura? Os dados serão perdidos.",acao);
 	return false;
 }
 
@@ -30,7 +30,6 @@ function venda_adicionar_itens()
 	itens++;
 
 	var tdes = [];
-	//var tr  = document.createElement('tr');
 
 	var td = document.createElement('td');
 
@@ -207,11 +206,22 @@ function venda_adicionar_itens()
 	}
 
 	document.getElementById("content").appendChild(tr);
-	$(".crazy").show();
-
 }
 
-function cria_fatura()
+function venda_apagar_ultima_linha()
+{
+	if(itens < 2){
+		aviso('info', 'É obrigatório o minimo de 1 linha.');
+		return false;
+	}
+	let x = () => {
+		node.parentNode.removeChild($("#content:last-child"));
+		itens--;
+	};
+	dialogoconfirmacao("Deseja Remover A ultima Linha? Se houver informações serão perdidas",x);
+}
+
+function venda_criar_fatura()
 {
 	var cliente = $('#lista_clientes');
 
@@ -354,7 +364,7 @@ function cria_fatura()
 
 	var x = () => {
 		envia_fatura(Clientes[cliente.val()]['id']);
-		apagarfatura();
+		venda_apagar_fatura();
 		$('#lista_clientes').value = -1;
 		obter_usuarios();
 		$(".fundo").hide(1200);

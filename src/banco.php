@@ -8,7 +8,6 @@
 	define('USER','sara');
 	define('password','rltm40213Tlwe3');
 	define('db','loja');
-	#define('criabanco', false); -> #require 'modelo.php';
 
 class Banco{
 

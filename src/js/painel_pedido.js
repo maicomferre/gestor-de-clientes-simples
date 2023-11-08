@@ -363,5 +363,4 @@ function cria_fatura()
 
 	dialogoconfirmacao("Dados Da Fatura: <b>"+Clientes[cliente.val()]['nome']+"</b><hr>Produtos: "+explicacao['produtos']+" - Total: R$ "+explicacao['valor_total'].toFixed(2),x);
 	
-
 }

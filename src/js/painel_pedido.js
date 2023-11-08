@@ -8,21 +8,20 @@
 
 */
 
-function apagarfatura(confirmado=false)
+function apagarfatura()
 {
-	if(!confirmado)
-	{
-		var x = () => apagarfatura(true);
-		dialogoconfirmacao("Deseja Apagar as informações inseridas nesta fatura? Os dados serão perdidos.",x);
-		return false;
-	}
+	var x = () => {
+		lista_itens = {};
 
-	lista_itens = {};
+		itens=0;
+		$("#content").html("");
 
-	itens=0;
-	$("#content").html("");
+		venda_adicionar_itens();
 
-	venda_adicionar_itens();
+	};
+
+	dialogoconfirmacao("Deseja Apagar as informações inseridas nesta fatura? Os dados serão perdidos.",x);
+	return false;
 }
 
 function venda_adicionar_itens()
@@ -31,7 +30,6 @@ function venda_adicionar_itens()
 	itens++;
 
 	var tdes = [];
-
 	//var tr  = document.createElement('tr');
 
 	var td = document.createElement('td');
@@ -337,7 +335,7 @@ function cria_fatura()
 
 	var x = () => {
 		send(Clientes[cliente.val()]['id']);
-		apagarfatura(true);
+		apagarfatura();
 		$('#lista_clientes').value = -1;
 		obter_usuarios();
 		$(".fundo").hide(1200);

@@ -114,7 +114,7 @@
 		<div class="crazy" style="display:none">
 			<b>Ações:</b>
 			<input type="submit" onClick="cria_fatura();" value="Criar Fatura" />
-			<input type="submit" onClick="apagarfatura(false);" value="Resetar Lista Fatura" />
+			<input type="submit" onClick="apagarfatura();" value="Resetar Lista Fatura" />
 		</div>
 	</div>
 	<div id="alerta">

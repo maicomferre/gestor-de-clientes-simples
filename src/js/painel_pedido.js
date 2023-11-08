@@ -215,7 +215,7 @@ function venda_apagar_ultima_linha()
 		return false;
 	}
 	let x = () => {
-		node.parentNode.removeChild($("#content:last-child"));
+		$("#content tr:last-child").remove();
 		itens--;
 	};
 	dialogoconfirmacao("Deseja Remover A ultima Linha? Se houver informações serão perdidas",x);

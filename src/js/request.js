@@ -59,7 +59,7 @@ function obter_usuarios()
 }
 
 
-function obter_contas()
+function obter_contas_em_aberto()
 {
 	$.ajax({
 		method:"GET",

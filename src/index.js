@@ -128,7 +128,7 @@ function carrega_lista_clientes(x)
 
 		lista_clientes.appendChild(opt);
 	}
-	obter_contas();
+	obter_contas_em_aberto();
 }
 
 function carrega_contas(f)

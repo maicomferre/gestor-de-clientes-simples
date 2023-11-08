@@ -46,10 +46,6 @@
 		</tr>		
 	</table>		
 
-
-
-
-
 	</table>
 	<table id="table_lista_contas">
 		<tr>

@@ -3,7 +3,7 @@
 		Funções relativas ao painel de cadastro de pedido dos clientes.
 
 	apagarfatura() -> Apaga os dados(salvo apenas no navegador); e limpa linhas criadas gerando 1 linha nova em branco;
-	cria_fatura()  -> Chamada pelo usuário ao terminar de escrever a fatura. Valida e chama request.js/send() para enviar os dados para o servidor;
+	cria_fatura()  -> Chamada pelo usuário ao terminar de escrever a fatura. Valida e chama request.js/envia_fatura() para enviar os dados para o servidor;
 	venda_adicionar_itens() -> Adiciona Linhas;
 
 */
@@ -272,9 +272,29 @@ function cria_fatura()
 		if(pagamento_produto.val() == 2)
 		{
 			let x = data.val().split('-');
+
+
 			if(x[0] < 2023 || x[0] > 3000 || x[1] > 12 || x[1] < 1 || x[2] > 31 || x[2] < 1)
 			{
 				aviso('erro','Data Inválida. A data é obrigatória para o tipo de pagamento');
+				data.focus();
+				return false;	
+			}
+
+			let data_atual = Date.now();
+			let data_inserida = new Date(data.val());
+
+			
+			if(!data_inserida || !data_atual)
+			{
+				aviso("erro","Erro ao validar data; verifique se foi digitado corretamente.");
+				console.log("[painel_pedido.js][cria_fatura()]: data_inserida="+data_inserida+" data_atual="+data_atual);
+				data.focus();
+				return false;
+			}
+			else if(data_atual >= data_inserida)
+			{
+				aviso('erro','Data Inválida. A data deve ser maior que a atual.');
 				data.focus();
 				return false;	
 			}
@@ -330,11 +350,10 @@ function cria_fatura()
 		_temp_var = parseInt(lista_itens[x]['quantidade_produto']);
 		explicacao['produtos'] += _temp_var;
 		explicacao['valor_total'] += parseFloat(preco * _temp_var);
-		console.log("painel_pedido.js - > for - > x="+x);
 	}
 
 	var x = () => {
-		send(Clientes[cliente.val()]['id']);
+		envia_fatura(Clientes[cliente.val()]['id']);
 		apagarfatura();
 		$('#lista_clientes').value = -1;
 		obter_usuarios();

@@ -90,7 +90,7 @@ function dialogoconfirmacao(text,onTrueCall)
 		$('#dialogo_de_confirmacao').show();
 }
 
-function load(x)
+function carrega_lista_clientes(x)
 {
 	Clientes = x;
 	var lista_clientes = '<option selected value="-1">Cliente</option>';

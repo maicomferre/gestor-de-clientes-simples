@@ -49,11 +49,11 @@ function obter_usuarios()
 		url:'src/?obterusuarios',
 		
 		success:function(x){
-			load(x);
+			carrega_lista_clientes(x);
 		},
 		faill:function(data)
 		{
-			alert("ERR?OBTERDADOS");
+			console.log("obter_usuarios(): Erro "+data);
 		},
 	});
 }
@@ -76,7 +76,7 @@ function obter_contas()
 	});	
 }
 
-function send(clientid)
+function envia_fatura(clientid)
 {
 	$.ajax({
 		method:"POST",

@@ -92,4 +92,5 @@ h1{
 	z-index: 999;
 	right:20px;
 	top:10px;
+	width:calc(90% - 20px);
 }

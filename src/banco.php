@@ -28,7 +28,6 @@ class Banco{
 		);
 	}
 
-
 	function listar_contas_em_aberto():array
 	{
 		$tmp = $this->query("SELECT count(*) as contas,

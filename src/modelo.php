@@ -1,6 +1,8 @@
 <?php
 #Modelo
 
+
+
 if(defined('criabanco')){
 	$pdo = new PDO('mysql:host='.HOST.';port=3306;dbname='.db.';charset=utf8',USER,password);
 
@@ -30,6 +32,20 @@ if(defined('criabanco')){
 
 
 	$pdo->exec($sql);
-}
+
+	$sql = 'CREATE TABLE `'.db.'`.`revista`(
+		`nome` VARCHAR(100) NOT NULL		
+		`data_criacao` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+		`id` SMALLINT PRIMARY KEY AUTO_INCREMENT,
+		`descricao` LONGTEXT NULL) ENGINE = InnoDB;
+	';
+
+	$sql = 'CREATE TABLE `'.db.'`.`campanha`
+		`nome` VARCHAR(100) NOT NULL		
+		`data_criacao` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+		`revistaid` INT NULL DEFAULT 1,
+		`id` SMALLINT PRIMARY KEY AUTO_INCREMENT,
+		`descricao` LONGTEXT NULL) ENGINE = InnoDB;
+	';}
 ?>
 

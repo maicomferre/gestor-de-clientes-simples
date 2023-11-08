@@ -6,7 +6,8 @@
 	<link rela="icon" type="image/x-icon" href="photo.png" />
 	<script type="text/javascript" src="/jquery-3.1.0.min.js"></script>
 	<script type="text/javascript" src="src/js/request.js"></script>
-	<script type="text/javascript" src="src/index.js"></script>
+	<script type="text/javascript" defer="true" src="src/index.js"></script>
+	<script type="text/javascript" src="src/js/painel_pedido.js"></script>
 	<link rel="stylesheet" type="text/css" href="src/index.css" />
 
 	<!-- Externos -->
@@ -81,7 +82,7 @@
 		<div id="dialogo_de_confirmacao" style="display:none;">
 			<h2><span id="dialogo_de_confirmacao_msg"></span></h2>
 
-			<button type="button" class="btn btn-danger" onClick="apagarfatura(true);" id="dialogo_de_confirmacao_btnsim">Confirmar</button>
+			<button type="button" class="btn btn-danger" onClick="javascript:void(0);" id="dialogo_de_confirmacao_btnsim">Confirmar</button>
 
 			<button type="button" class="btn btn-primary" onClick="$('#dialogo_de_confirmacao').hide();">Cancelar</button>
 
@@ -111,8 +112,7 @@
 			</tr>
 		</table>
 		<div class="crazy" style="display:none">
-			<p> Criar Fatura com <span id="produtos_quantidade"></span> para <span id="cliente_nome"></span> no valor de R$ <span id="produto_valor"></span></p>
-
+			<b>Ações:</b>
 			<input type="submit" onClick="cria_fatura();" value="Criar Fatura" />
 			<input type="submit" onClick="apagarfatura(false);" value="Resetar Lista Fatura" />
 		</div>

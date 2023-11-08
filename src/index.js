@@ -48,6 +48,7 @@ function aviso(tipo,valor)
 
 function hide(x)
 {
+	//Esconde qualquer elemento que acompanhe fundo.
 	$(x).hide('slow');	
 	$('.fundo').hide('slow');	
 
@@ -69,6 +70,16 @@ function mostra(x)
 	{
 		$(".fundo").show();
 		$('#btn_01').show();
+	}
+	if(x == 'gerenciarcliente')
+	{
+		$('.fundo').show();
+		$('#btn_03').show();
+	}
+	if(x == 'gerenciarrevista')
+	{
+		$('.fundo').show();
+		$('#btn_04').show();	
 	}
 }
 

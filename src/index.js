@@ -105,7 +105,14 @@ function dialogoconfirmacao(text,onTrueCall)
 function carrega_lista_clientes(x)
 {
 	Clientes = x;
-	var lista_clientes = '<option selected value="-1">Cliente</option>';
+	let lista_clientes = document.getElementById('lista_clientes');
+	var opt = document.createElement('option');
+
+	opt.value = -1;
+	opt.innerHTML = "Selecione O Cliente";
+	opt.selected = true;
+
+	lista_clientes.appendChild(opt);
 
 	for(let x=0; x<Clientes.length; x++)
 	{
@@ -115,10 +122,12 @@ function carrega_lista_clientes(x)
 			continue;
 		}
 
-		lista_clientes += "<option value="+x+" >"+capitalizeFirstLetter(Clientes[x]['nome'])+
-		"   -   "+Clientes[x]['telefone']+"</option>";
+		opt = document.createElement('option');
+		opt.value = x;
+		opt.innerHTML = primeira_letra_maiuscula(Clientes[x]['nome']) + "<i>" + Clientes[x]['telefone'] + "</i>";
+
+		lista_clientes.appendChild(opt);
 	}
-	$('#lista_clientes').html(lista_clientes);
 	obter_contas();
 }
 
@@ -162,7 +171,7 @@ function carrega_contas(f)
 	}
 }
 
-function capitalizeFirstLetter(string) {
+function primeira_letra_maiuscula(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 

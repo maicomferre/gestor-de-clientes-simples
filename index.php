@@ -137,9 +137,8 @@
 	<div class="abtn" style="display:none;" id="btn_03">
 		<span id="botao_sair" onClick="hide('#btn_03');">Sair(X)</span>
 		<h1>Gerenciar Cliente do Sistema</h1>
-		<div>
-
-			<table>
+		<div class="d-flex justify-content-center">
+			<table class="d-flex justify-content-center">
 				<tr>
 					<th>Nome</th>
 					<th>Telefone</th>
@@ -158,7 +157,7 @@
 					<td><button type="button" class="btn btn-success"><i class="fas fa-edit" style='font-size:20px'></i></button></td>
 				</tr>	
 			</table>
-		</div>	
+		</div>
 	</div>
 
 

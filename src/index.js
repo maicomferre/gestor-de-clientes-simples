@@ -5,6 +5,7 @@ var revistas =[
 	"Jequiti",
 	"Avon",
 ]
+var background_images = ['01.jpg','02.jpg','03.jpg'];
 
 
 
@@ -19,13 +20,11 @@ var lista_itens = {};
 $(document).ready(function(){
 	obter_usuarios();
 	//obter_contas();
+	let range = Math.floor(Math.random() * background_images.length);
+	var image = "src/fundo/" + background_images[range];
 
+	document.body.style.backgroundImage = "url('"+image+"')";
 
-	//Scroll tela de criar 
-	/*bt2_02_interval = window.setInterval(function() {
-	  var elem = document.getElementById('btn_02');
-	  elem.scrollTop = elem.scrollHeight;
-	}, 5000);*/
 });
 
 function aviso(tipo,valor)
@@ -105,6 +104,7 @@ function dialogoconfirmacao(text,onTrueCall)
 function carrega_lista_clientes(x)
 {
 	Clientes = x;
+	$('#lista_clientes').children().remove();
 	let lista_clientes = document.getElementById('lista_clientes');
 	var opt = document.createElement('option');
 
@@ -124,7 +124,7 @@ function carrega_lista_clientes(x)
 
 		opt = document.createElement('option');
 		opt.value = x;
-		opt.innerHTML = primeira_letra_maiuscula(Clientes[x]['nome']) + "<i>" + Clientes[x]['telefone'] + "</i>";
+		opt.innerHTML = primeira_letra_maiuscula(Clientes[x]['nome']) + "  -  " + Clientes[x]['telefone'] ;
 
 		lista_clientes.appendChild(opt);
 	}

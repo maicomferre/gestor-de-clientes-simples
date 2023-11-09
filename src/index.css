@@ -1,4 +1,12 @@
 
+tr,td,th{
+	background-color: rgba(200, 200, 200, 0.7);
+}
+
+h1{
+	text-shadow: 4px 4px 6px #CCC;
+}
+
 #dialogo_de_confirmacao{
 	position: absolute;
 	top:20vh;

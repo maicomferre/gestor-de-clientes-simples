@@ -24,7 +24,6 @@ $(document).ready(function(){
 	var image = "src/fundo/" + background_images[range];
 
 	document.body.style.backgroundImage = "url('"+image+"')";
-
 });
 
 function aviso(tipo,valor)
@@ -44,6 +43,19 @@ function aviso(tipo,valor)
 	setTimeout(function(){
 		$('#alerta').hide('slow');
 	},5200);
+}
+
+function ver_cliente(id)
+{
+	if(Clientes[id] === undefined)
+	{
+		aviso('erro',"Erro Interno ao mostrar cliente");
+		console.log("ver_cliente("+id+"): Clientes[id] indefinido");
+		return false;
+	}
+	mostra();
+
+	return 0;
 }
 
 function hide(x)
@@ -66,21 +78,28 @@ function mostra(x)
 		if(itens < 2)
 			venda_adicionar_itens();
 	}
-	if(x == 'adicionarcliente')
+	else if(x == 'adicionarcliente')
 	{
 		$(".fundo").show();
 		$('#btn_01').show();
 	}
-	if(x == 'gerenciarcliente')
+	else if(x == 'gerenciarcliente')
 	{
 		$('.fundo').show();
 		$('#btn_03').show();
 	}
-	if(x == 'gerenciarrevista')
+	else if(x == 'gerenciarrevista')
 	{
 		$('.fundo').show();
 		$('#btn_04').show();	
 	}
+	else if()
+	{
+		$('.fundo').show();
+		$("#btn_05").show();
+	}
+	else
+		console.log("erro","mostra(x='"+x+"'): Não é válido");
 }
 
 function dialogoconfirmacao(text,onTrueCall)

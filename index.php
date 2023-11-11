@@ -174,6 +174,11 @@
 		</div>	
 	</div>
 
+	<div class="abtn" style="display:none;" id="btn_05">
+		<span id="botao_sair" onClick="hide('#btn_05');">Sair(X)</span>
+		<h1>Contas em Aberto</h1>
+		<!-- MOstrar contas em aberto de cliente -->
+	</div>
 	<div id="alerta">
 		<a href="#" id="statoes" class=""></a>
 	</div>

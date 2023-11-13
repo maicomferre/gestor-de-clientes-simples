@@ -58,6 +58,24 @@ function obter_usuarios()
 	});
 }
 
+function obter_fatura_individual_cliente()
+{
+	$.ajax({
+		method:'get',
+		url:'src/?obterfaturaespecifica',
+		
+		success:function(x){
+			$('#clientenome').html(x['nome']);
+			mostra('faturacliente');
+		},
+		faill:function(data)
+		{
+			console.log("obter_usuarios(): Erro "+data);
+		},
+	});
+}
+
+
 
 function obter_contas_em_aberto()
 {

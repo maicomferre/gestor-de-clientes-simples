@@ -176,8 +176,17 @@
 
 	<div class="abtn" style="display:none;" id="btn_05">
 		<span id="botao_sair" onClick="hide('#btn_05');">Sair(X)</span>
-		<h1>Contas em Aberto</h1>
-		<!-- MOstrar contas em aberto de cliente -->
+		<h1>Contas em Aberto: <span id="clientenome"> </span> </h1>
+		<!-- Mostrar contas em aberto de cliente -->
+		<table>
+			<tr>
+				<th>Produto</th>
+				<th>Quantidade</th>
+				<th>Valor Unitário</th>
+				<th>Valor Final</th>
+			</tr>
+
+		</table>
 	</div>
 	<div id="alerta">
 		<a href="#" id="statoes" class=""></a>

@@ -7,8 +7,6 @@ var revistas =[
 ]
 var background_images = ['01.jpg','02.jpg','03.jpg'];
 
-
-
 var _tmp_dialogoconfirmacao = undefined;
 var bt2_02_interval = null;
 
@@ -53,8 +51,7 @@ function ver_cliente(id)
 		console.log("ver_cliente("+id+"): Clientes[id] indefinido");
 		return false;
 	}
-	mostra();
-
+	obter_fatura_individual_cliente(id);
 	return 0;
 }
 
@@ -93,7 +90,7 @@ function mostra(x)
 		$('.fundo').show();
 		$('#btn_04').show();	
 	}
-	else if()
+	else if(x == 'faturacliente')
 	{
 		$('.fundo').show();
 		$("#btn_05").show();

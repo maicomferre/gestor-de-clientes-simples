@@ -14,7 +14,7 @@ function venda_apagar_fatura()
 		lista_itens = {};
 
 		itens=0;
-		$("#content").html("");
+		$("#content tr").remove();
 
 		venda_adicionar_itens();
 

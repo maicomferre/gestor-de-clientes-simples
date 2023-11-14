@@ -119,7 +119,8 @@
 		</div>
 		<br />
 		<div class="d-flex justify-content-center">
-			<table id="content">
+			<table>
+				<thead>
 				<tr>
 					<th>Produto Vendido</th>
 					<th>Quantidade</th>
@@ -130,6 +131,11 @@
 					<th>Revista</th>
 					<th>Código</th>
 				</tr>
+				</thead>
+				<tbody id="content">
+
+
+				</tbody>
 			</table>
 		</div>
 	</div>

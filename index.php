@@ -178,14 +178,15 @@
 		<span id="botao_sair" onClick="hide('#btn_05');">Sair(X)</span>
 		<h1>Contas em Aberto: <span id="clientenome"> </span> </h1>
 		<!-- Mostrar contas em aberto de cliente -->
-		<table>
+		<table id="cliente_fatura_table">
 			<tr>
 				<th>Produto</th>
 				<th>Quantidade</th>
 				<th>Valor Unitário</th>
 				<th>Valor Final</th>
+				<th>Metodo de Pagamento</th>
+				<th>Data Estipulada</th>
 			</tr>
-
 		</table>
 	</div>
 	<div id="alerta">

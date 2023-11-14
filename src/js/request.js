@@ -58,14 +58,55 @@ function obter_usuarios()
 	});
 }
 
-function obter_fatura_individual_cliente()
+function obter_fatura_individual_cliente(clientid)
 {
 	$.ajax({
 		method:'get',
-		url:'src/?obterfaturaespecifica',
+		url:'src/?obterfaturaespecifica='+clientid,
 		
 		success:function(x){
-			$('#clientenome').html(x['nome']);
+			let tr,tmp;
+			let table = document.getElementById("cliente_fatura_table");
+			
+			let clean = $('#cliente_fatura_table tr:not(:first-child)').children();
+			if(clean.length > 0)
+				clean.remove();
+
+			for(var i=0; i<x.length; i++)
+			{
+				tr = document.createElement('tr');
+
+				tmp = document.createElement('td');
+				tmp.innerHTML = x[i]['nome_produto'];
+
+				tr.appendChild(tmp);
+
+				tmp = document.createElement('td');
+				tmp.innerHTML = x[i]['quantidade_produto'];
+
+				tr.appendChild(tmp);
+
+				tmp = document.createElement('td');
+				tmp.innerHTML =  formatter.format(x[i]['valor_produto']);
+
+				tr.appendChild(tmp);
+
+				tmp = document.createElement('td');
+				tmp.innerHTML =  formatter.format(x[i]['valor_produto'] * x[i]['quantidade_produto']);
+				tr.appendChild(tmp);
+
+				tmp = document.createElement('td');
+				tmp.innerHTML = x[i]['pagamento_produto'];
+
+				tr.appendChild(tmp);
+
+				tmp = document.createElement('td');
+				tmp.innerHTML = (x[i]['data_vencimento'] === null ? ('Não Definido') : (x[i]['data_vencimento']));
+
+				tr.appendChild(tmp);
+
+				table.appendChild(tr);
+			}
 			mostra('faturacliente');
 		},
 		faill:function(data)

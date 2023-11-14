@@ -44,4 +44,11 @@ if(isset($_GET['contas_em_aberto']))
 	echo json_encode($a->listar_contas_em_aberto());
 }
 
+if(isset($_GET['obterfaturaespecifica']))
+{
+	header("Content-Type:application/json;");
+	echo json_encode($a->listarFaturaAbertaCliente($_GET['obterfaturaespecifica']));
+
+}
+
 ?>

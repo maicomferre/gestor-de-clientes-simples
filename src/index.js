@@ -45,13 +45,9 @@ function aviso(tipo,valor)
 
 function ver_cliente(id)
 {
-	if(Clientes[id] === undefined)
-	{
-		aviso('erro',"Erro Interno ao mostrar cliente");
-		console.log("ver_cliente("+id+"): Clientes[id] indefinido");
-		return false;
-	}
-	obter_fatura_individual_cliente(id);
+	$('#clientenome').html(Clientes[id]['nome']);
+	obter_fatura_individual_cliente(Clientes[id]['id']);
+
 	return 0;
 }
 
@@ -157,7 +153,7 @@ function carrega_contas(f)
 
 		tr = document.createElement('tr');
 	
-		tr.setAttribute('onClick',"ver_cliente('"+f[j]['id']+"')");
+		tr.setAttribute('onClick',"ver_cliente('"+j+"')");
 
 		let td = document.createElement('td');
 		td.innerHTML = f[j]['nome'];

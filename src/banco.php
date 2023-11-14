@@ -27,6 +27,16 @@ class Banco{
 		);
 	}
 
+	function listarFaturaAbertaCliente($clientid):array
+	{
+		if($this->usuario_existe_porid($clientid) === false){
+			echo "[class=Banco][usuario_existe_porid(..,..)]: cliente não encontrado $clientid";			
+			return false;
+		}
+
+		return $this->query("SELECT * FROM `produto` WHERE clienteid=:x and emaberto=1",array(":x" => $clientid));
+	}
+
 	function listar_contas_em_aberto():array
 	{
 		$tmp = $this->query("SELECT count(*) as contas,

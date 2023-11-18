@@ -41,7 +41,7 @@ class Banco{
 	{
 		$tmp = $this->query("SELECT count(*) as contas,
 			sum(produto.valor_produto) as valor_produto,
-			MAX(data_vencimento) as data_vencimento,
+			MIN(data_vencimento) as data_vencimento,
 			cliente.nome,cliente.id 
 
 			FROM `produto`
@@ -206,6 +206,7 @@ class Banco{
 			echo "[class=Banco][cria_fatura(...,...)]: conta já existe";
 			return false;
 		}
+
 		$t = $this->banco->prepare("INSERT INTO `produto`(`nome_produto`,
 	 	`valor_produto`,
 	  	`data_vencimento`,
@@ -220,7 +221,7 @@ class Banco{
 
 		$t->bindParam(":nome",$produto['nome_produto']);
 		$t->bindParam(":valor",$produto['valor_produto']);
-		$t->bindParam(":data",$produto['data_vencimento']);
+		$t->bindParam(":data",$produto['data']);
 		$t->bindParam(":emaberto",$produto['emaberto']);
 		$t->bindParam(":tipopagamento",$produto['pagamento_produto']);
 		$t->bindParam(":quantidade",$produto['quantidade_produto']);

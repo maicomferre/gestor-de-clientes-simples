@@ -22,7 +22,7 @@ if(isset($_GET['criafatura']))
 {
 	if(isset($_POST['lista_itens']) and !empty($_POST['lista_itens']))
 	{
-		print_r($_GET['criafatura']);
+		//print_r($_GET['criafatura']);
 		if($a->usuario_existe_porid($_GET['criafatura']) === false)
 		{
 			echo "Erro!. Usuário não existe";

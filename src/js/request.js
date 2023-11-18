@@ -10,6 +10,17 @@ function envia_novo_cliente()
 	var nome = $("#nome_cliente").val();
 	var telefone = $("#telefone_cliente").val();
 
+	if(nome.length < 3)
+	{
+		aviso('erro','Nome Muito Curto. Minimo de 3 Caracteres');
+		return false;
+	}
+	if(telefone.length < 9)
+	{
+		aviso('erro',"Telefone Muito Curto!");
+		return false;
+	}
+
 	$("#telefone_cliente").val('');
 	$("#nome_cliente").val('');
 

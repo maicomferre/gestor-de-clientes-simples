@@ -192,6 +192,7 @@
 				<th>Valor Final</th>
 				<th>Metodo de Pagamento</th>
 				<th>Data Estipulada</th>
+				<th colspan="2">Opções</th>
 			</tr>
 		</table>
 	</div>

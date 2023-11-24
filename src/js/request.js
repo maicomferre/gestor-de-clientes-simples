@@ -116,6 +116,20 @@ function obter_fatura_individual_cliente(clientid)
 
 				tr.appendChild(tmp);
 
+
+				//Botão Marcar Como Pago
+				tmp = document.createElement('td');
+				tmp.appendChild(cria_bootstrap_botao_elemento("btn btn-success",'fa-solid fa-cash-register'))
+
+				tr.appendChild(tmp);
+
+
+				//Botão Alterar
+				tmp = document.createElement('td');
+				tmp.appendChild(cria_bootstrap_botao_elemento("btn btn-warning",'fas fa-edit'))
+
+				tr.appendChild(tmp);
+
 				table.appendChild(tr);
 			}
 			mostra('faturacliente');
@@ -128,6 +142,20 @@ function obter_fatura_individual_cliente(clientid)
 }
 
 
+function cria_bootstrap_botao_elemento(_btn,_class)
+{
+	let x1 = document.createElement('button');
+	x1.setAttribute('type',"button");
+	x1.setAttribute('class',_btn);
+
+	let x2 = document.createElement('i')
+	x2.setAttribute('class',_class);
+	x2.setAttribute('style','font-size:20px');
+
+	x1.appendChild(x2);
+
+	return x1;
+}
 
 function obter_contas_em_aberto()
 {

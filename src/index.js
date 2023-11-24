@@ -145,7 +145,8 @@ function carrega_lista_clientes(x)
 
 function carrega_contas(f)
 {
-	document.getElementById("table_lista_contas").innerHTML = '<tr><th>Cliente Nome</th><th>Contas Em Aberto</th><th>Vencimento Mais Próximo</th><th>Divida Total</th></tr>';
+	document.getElementById("table_lista_contas").innerHTML = '<tr><th colspan="4">Faturas Em Aberto</th></tr>\
+	<tr><th>Cliente Nome</th><th>Contas Em Aberto</th><th>Vencimento Mais Próximo</th><th>Divida Total</th></tr>';
 
 	for(let j=0; j<f.length; j++)
 	{

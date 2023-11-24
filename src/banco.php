@@ -320,7 +320,7 @@ class Banco{
 			return false;
 		}
 
-		$r = $this->query("SELECT * FROM `{$this->tabela_usuario}` WHERE telefone = :tel",array(":tel"=>$telefone));
+		$r = $this->query("SELECT telefone FROM `{$this->tabela_usuario}` WHERE telefone = :tel",array(":tel"=>$telefone));
 
 		if(count($r) > 0)
 		{
@@ -368,9 +368,8 @@ class Banco{
 			array("id" => $userid)
 		);
 
-
 		return $a;
-	}	
+	}
 
 	public function altera_usuario(string $userid,string $key,string $dado):bool
 	{
@@ -403,7 +402,7 @@ class Banco{
 			return false;
 		}
 
-		$this->query("DELETE FROM `{$this->tabela_usuario}` WHERE `usuario_id`=:id",array(":id"=>$userid));
+		$this->query("DELETE FROM `{$this->tabela_usuario}` WHERE `id`=:id",array(":id"=>$userid));
 		return true;
 	}
 
